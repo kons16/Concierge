@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: chatapp-user
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: chatapp_development
+
+test:
+  <<: *default
+  database: chatapp_test
+
+production:
+  <<: *default
+  database: chatapp_production
+  username: chatapp-user
+  password: <%= ENV['DATABASE_PASSWORD'] %>
