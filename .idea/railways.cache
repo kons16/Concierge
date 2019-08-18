@@ -14,5 +14,18 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          PUT    /users(.:format)               devise/registrations#update
                          DELETE /users(.:format)               devise/registrations#destroy
                          POST   /users(.:format)               devise/registrations#create
+                   users GET    /users(.:format)               users#index
+                         POST   /users(.:format)               users#create
+                new_user GET    /users/new(.:format)           users#new
+               edit_user GET    /users/:id/edit(.:format)      users#edit
+                    user GET    /users/:id(.:format)           users#show
+                         PATCH  /users/:id(.:format)           users#update
+                         PUT    /users/:id(.:format)           users#update
+                         DELETE /users/:id(.:format)           users#destroy
                     root GET    /                              home#index
                home_show GET    /home/show(.:format)           home#show
+              users_show GET    /users/show(.:format)          users#show
+          users_add_hoby POST   /users/add_hoby(.:format)      users#add_hoby
+       users_delete_hoby POST   /users/delete_hoby(.:format)   users#delete_hoby
+             users_index GET    /users/index(.:format)         users#index
+                         GET    /users/show(.:format)          users#show

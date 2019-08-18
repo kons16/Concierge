@@ -6,4 +6,12 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :search_id])
     end
+
+  private
+    # ユーザーのログインを確認する
+    def logged_in_user
+      unless user_signed_in?
+        redirect_to root_path
+      end
+    end
 end

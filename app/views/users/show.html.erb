@@ -1,5 +1,19 @@
 <h1>マイページ</h1>
 <% if user_signed_in? %>
-  <%= current_user.name %>
+  <h2><%= current_user.name %></h2>
+  趣味
+  <%= form_tag users_add_hoby_path, method: :post do %>
+    <input name="hoby_name" value="">
+    <input type="submit" value="追加">
+  <% end %>
+
+  <% current_user.user_hoby.each do |my_hoby| %>
+    <div class="hoby">
+      <%= my_hoby.hoby.hoby_name %>
+      <%= link_to "☓", users_delete_hoby_path(id: my_hoby.hoby.id), method: :post %>
+    </div>
+  <% end %>
+
 <% else %>
+
 <% end %>
