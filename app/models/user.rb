@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_hoby
   has_many :hoby, through: :user_hoby, dependent: :destroy
+  has_many :report
 end
