@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
   '''
   チャット申請・断るときの遷移 chat_requestの初期値は0
-  DestUser(申請先) : OriginUserのID　→ 0 (NG)
-                                   → -1 (OK)
-  OriginUser(申請元) : -2           →　-4 (NG) → 0
-                                   → -1  (OK)
+  DestUser(申請先) : OriginUserのID　  → 0 (NG)
+                                     → -1 (OK)
+  OriginalUser(申請元) : -2           →　-4 (NG)  → 0
+                                     → -1  (OK)
   '''
 
   def index
@@ -19,6 +19,7 @@ class HomeController < ApplicationController
         if chat_request != -2 and chat_request != -4  # チャット申請が送られてきた
           @announce = "チャット申請がきてます！"
           @chat_status = 1
+          @origin_user = User.find(chat_request)
 
         elsif chat_request == -4                      # チャット申請が断られた
           @announce = "チャット申請が断られました。"
