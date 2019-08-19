@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'home/show'
+  post 'home/reject'
   get 'users/show'
   post 'users/add_hoby'
   post 'users/delete_hoby'

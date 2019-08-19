@@ -1,4 +1,3 @@
-<h1>マイページ</h1>
 <% if user_signed_in? %>
   <h2><%= @user.name %></h2>
   趣味
@@ -16,7 +15,7 @@
     </div>
   <% end %>
 
-  <% if current_user.id.to_s != params[:id] %>
+  <% if current_user.id.to_s != params[:id] and @user.chat_request != -2 %>
     <%= link_to "チャットを申請", users_chat_request_path(dest_id: params[:id]),
                 method: :post %>
   <% end %>

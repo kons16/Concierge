@@ -24,8 +24,10 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          DELETE /users/:id(.:format)           users#destroy
                     root GET    /                              home#index
                home_show GET    /home/show(.:format)           home#show
+             home_reject POST   /home/reject(.:format)         home#reject
               users_show GET    /users/show(.:format)          users#show
           users_add_hoby POST   /users/add_hoby(.:format)      users#add_hoby
        users_delete_hoby POST   /users/delete_hoby(.:format)   users#delete_hoby
+      users_chat_request POST   /users/chat_request(.:format)  users#chat_request
              users_index GET    /users/index(.:format)         users#index
                          GET    /users/show(.:format)          users#show
