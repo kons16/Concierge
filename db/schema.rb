@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190819065324) do
+ActiveRecord::Schema.define(version: 20190820011131) do
 
   create_table "hobies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "hoby_name"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20190819065324) do
     t.string "name"
     t.string "search_id"
     t.text "introduction"
-    t.integer "chat_count"
-    t.integer "like_count"
+    t.integer "chat_count", default: 0
+    t.integer "like_count", default: 0
     t.string "icon"
     t.boolean "assist"
     t.integer "chat_request", default: 0
