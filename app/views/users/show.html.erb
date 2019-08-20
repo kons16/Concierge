@@ -1,7 +1,8 @@
 <% if user_signed_in? %>
   <h2><%= @user.name %> | <%= @user.search_id %></h2>
   チャットカウント : <%= @user.chat_count %> <br>
-  ライク : <%= @user.like_count %>
+  ライク : <%= @user.like_count %> <br>
+  自己紹介 : <%= @user.introduction %>
   <br><br>
 
   趣味
