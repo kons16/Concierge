@@ -3,13 +3,13 @@
 <% if user_signed_in? %>
 
   <% if @chat_status != 0 %>
-    <% if @chat_status == 1 %>
+    <% if @chat_status == 1 %>    <!-- チャット申請あり -->
       <%= @announce %>
       (<%= link_to @origin_user.name, user_path(@origin_user.id) %>)
       <%= link_to "チャットルームへ" %>
       <%= link_to "断る", home_reject_path(origin_id: @origin_user.id), method: :post %>
 
-    <% elsif @chat_status == 2 %>
+    <% elsif @chat_status == 2 %>　　<!-- チャット申請が断られた -->
       <%= @announce %>
     <% end %>
   <% end %>

@@ -1,5 +1,8 @@
 <% if user_signed_in? %>
   <h2><%= @user.name %></h2>
+  チャットカウント : <%= @user.chat_count %>
+  <br><br>
+
   趣味
   <%= form_tag users_add_hoby_path, method: :post do %>
     <input name="hoby_name" value="">

@@ -36,6 +36,7 @@ class HomeController < ApplicationController
     end
   end
 
+  # チャット申請を断る
   def reject
     @origin_user = User.find(params[:origin_id])
     current_user.chat_request = 0
