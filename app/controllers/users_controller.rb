@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     dest_user = User.find(params[:dest_id])
     @dest_user_request = dest_user.chat_request
 
-    if @dest_user_request == 0 and @dest_user_request != -2
+    if @dest_user_request == 0
       dest_user.chat_request = original
       User.find(current_user.id).chat_request = -2
     else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190820011131) do
+ActiveRecord::Schema.define(version: 20190826122344) do
 
   create_table "hobies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "hoby_name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20190820011131) do
     t.string "icon"
     t.boolean "assist"
     t.integer "chat_request", default: 0
+    t.integer "chat_room", default: -1
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
