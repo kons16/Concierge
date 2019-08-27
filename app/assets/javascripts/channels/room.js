@@ -20,5 +20,4 @@ App.room = App.cable.subscriptions.create("RoomChannel", {
         App.chat.speak(chatForm.val());
         return
     }
-
 }));

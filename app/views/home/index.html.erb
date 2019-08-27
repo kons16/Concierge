@@ -6,10 +6,13 @@
     <% if @chat_status == 1 %>    <!-- チャット申請あり -->
       <%= @announce %>
       (<%= link_to @origin_user.name, user_path(@origin_user.id) %>)
-      <%= link_to "チャットルームへ" %>
+      <%= link_to "チャットルームへ", home_create_room_path(origin_id: @origin_user.id), method: :post %>
       <%= link_to "断る", home_reject_path(origin_id: @origin_user.id), method: :post %>
 
     <% elsif @chat_status == 2 %>　　<!-- チャット申請が断られた -->
+      <%= @announce %>
+
+    <% elsif @chat_status == 3 %>  <!-- チャット申請を受け付けた -->
       <%= @announce %>
     <% end %>
   <% end %>

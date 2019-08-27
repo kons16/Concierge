@@ -4,4 +4,5 @@ class RoomsController < ApplicationController
       @room = Room.find(params[:id])
       @messages = @room.messages
     end
+  end
 end

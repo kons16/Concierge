@@ -1,8 +1,10 @@
 <h1>Chat Room</h1>
 
-<div id="messages">
-  <%= render @messages %>
-</div>
+<ui id="chat_index">
+  <% @messages.each do |msg| %>
+    <li><%= msg.context %></li>
+  <% end %>
+</ui>
 
 <%= label nil, nil, 'Say something:' %>
 <%= text_field nil, nil, 'data-behavior': 'room_speaker' %>
