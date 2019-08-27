@@ -44,4 +44,9 @@ class HomeController < ApplicationController
     current_user.save
     @origin_user.save
   end
+
+  # チャット申請許諾 チャットルームへ
+  def create_room
+
+  end
 end

@@ -22,6 +22,13 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          PATCH  /users/:id(.:format)           users#update
                          PUT    /users/:id(.:format)           users#update
                          DELETE /users/:id(.:format)           users#destroy
+               new_rooms GET    /rooms/new(.:format)           rooms#new
+              edit_rooms GET    /rooms/edit(.:format)          rooms#edit
+                   rooms GET    /rooms(.:format)               rooms#show
+                         PATCH  /rooms(.:format)               rooms#update
+                         PUT    /rooms(.:format)               rooms#update
+                         DELETE /rooms(.:format)               rooms#destroy
+                         POST   /rooms(.:format)               rooms#create
                     root GET    /                              home#index
                home_show GET    /home/show(.:format)           home#show
              home_reject POST   /home/reject(.:format)         home#reject

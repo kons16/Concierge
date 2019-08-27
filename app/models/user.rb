@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :user_hoby
   has_many :hoby, through: :user_hoby, dependent: :destroy
   has_many :report
+  has_many :messages
 end
