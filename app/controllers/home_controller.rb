@@ -28,9 +28,10 @@ class HomeController < ApplicationController
           current_user.save
 
         elsif chat_request == -1    # チャットルームへ移動
-          @chatroom_id = current_user.chat_room
-          @announce = @chatroom_id
+          chatroom_id = current_user.chat_room
+          @announce = chatroom_id
           @chat_status = 3
+          redirect_to rooms_path()
         end
 
       else

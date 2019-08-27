@@ -11,7 +11,7 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # coffeeで実行されたspeakのmessageをroom_chanelのreceivedにブロードキャスト
+    # room.jsで実行されたspeakのmessageをroom_chanelのreceivedにブロードキャスト
     ActionCable.server.broadcast 'room_channel', message: data['message']
   end
 end

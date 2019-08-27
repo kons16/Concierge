@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
+  resources :users, only: [:index, :create, :new]
+  resources :users, only: [:show, :edit, :update, :destroy], param: :search_id
   resource :rooms
 
   root 'home#index'

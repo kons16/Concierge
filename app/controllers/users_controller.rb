@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by!(search_id: params[:search_id])
   end
 
   # 趣味を新たに追加する
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @hoby = current_user.hoby.find_by(id: params[:id])
+      @hoby = current_user.hoby.find_by!(search_id: params[:search_id])
       redirect_to root_url if @hoby.nil?
     end
 end
