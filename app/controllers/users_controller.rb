@@ -35,18 +35,17 @@ class UsersController < ApplicationController
 
   # チャット申請する
   def chat_request
-    original = current_user.id.to_i
+    original_user = User.find(current_user.id)
     dest_user = User.find(params[:dest_id])
-    @dest_user_request = dest_user.chat_request
+    original_user_id = current_user.id.to_i
 
-    if @dest_user_request == 0
-      dest_user.chat_request = original
-      User.find(current_user.id).chat_request = -2
-    else
-
+    # チャット申請可能の場合
+    if dest_user.chat_request == 0
+      dest_user.chat_request = original_user_id
+      original_user.chat_request = -2
     end
 
-    if dest_user.save
+    if dest_user.save and original_user.save
       redirect_to user_path(current_user.id)
     end
   end
