@@ -20,7 +20,7 @@
     </div>
   <% end %>
 
-  <% if current_user.id.to_s != params[:id] and @user.chat_request != -2 %>
+  <% if current_user.search_id != @user.search_id and @user.chat_request != -2 %>
     <%= link_to "チャットを申請", users_chat_request_path(dest_id: params[:id]),
                 method: :post %>
   <% end %>
