@@ -7,4 +7,9 @@ class RoomsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  # ユーザーを通報する
+  def report_user
+
+  end
 end
