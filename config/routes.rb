@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post 'home/reject'
   post 'home/create_room'
 
+  post 'rooms/report_user'
+
   get 'users/show'
   post 'users/add_hoby'
   post 'users/delete_hoby'
