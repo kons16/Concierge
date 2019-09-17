@@ -1,3 +1,3 @@
 <div class="messages">
-  <p><%= message.context %></p>
+  <p><%= User.find(message.user_id).name %> 「<%= message.context %>」</p>
 </div>

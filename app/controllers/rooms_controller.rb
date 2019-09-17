@@ -10,6 +10,11 @@ class RoomsController < ApplicationController
     end
   end
 
+  # チャットを終了する
+  def end_chat
+
+  end
+
   # ユーザーを通報する
   def report_user
     Report.create!({user_id: current_user.id, target_id: params[:target_id]})

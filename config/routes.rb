@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post 'home/create_room'
 
   post 'rooms/report_user'
+  post 'rooms/end_chat'
 
   get 'users/show'
   post 'users/add_hoby'
@@ -17,5 +18,4 @@ Rails.application.routes.draw do
   post 'users/chat_request'
   get 'users/index'
   get 'users/show'
-
 end
