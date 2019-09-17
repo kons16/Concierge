@@ -12,7 +12,18 @@ class RoomsController < ApplicationController
 
   # チャットを終了する
   def end_chat
+    @target_user = User.where(chat_room: current_user.chat_room).where.not(id: current_user.id).first
+    @target_user.chat_request = 0
+    @target_user.chat_room = -1
+    current_user.chat_request = 0
+    current_user.chat_room = -1
 
+    current_user.increment!(:chat_count, 1)
+    @target_user.increment!(:chat_count, 1)
+
+    current_user.save!
+    @target_user.save!
+    redirect_to root_path
   end
 
   # ユーザーを通報する

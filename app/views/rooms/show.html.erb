@@ -7,7 +7,9 @@
 <%= label nil, nil, 'Say something:' %>
 <%= text_field nil, nil, 'data-behavior': 'room_speaker' %>
 
-<div id="end_chat">チャットを終了</div>
+<div id="end_chat">
+  <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post %>
+</div>
 <div id="report_user">
   <%= link_to "ユーザーを通報", rooms_report_user_path(target_id: @target_id.id), method: :post %>
 </div>
