@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     if my_hobies.exclude?(@add_hoby)
       current_user.user_hoby.build(hoby: Hoby.find_or_create_by(hoby_name: @add_hoby))
       if current_user.save
-        redirect_to user_path(current_user.id)
+        redirect_to user_path(current_user.search_id)
       end
     else
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(current_user.search_id)
     end
   end
 
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @delete_hoby = params[:id]
     @my_hoby = current_user.user_hoby.find_by(hoby_id: @delete_hoby)
     if @my_hoby.delete
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(current_user.search_id)
     end
   end
 
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     end
 
     def correct_user
-      @hoby = current_user.hoby.find_by!(search_id: params[:search_id])
+      @hoby = current_user.hoby.find_by(id: params[:id])
       redirect_to root_url if @hoby.nil?
     end
 end
