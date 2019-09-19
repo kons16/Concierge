@@ -35,6 +35,10 @@ gem 'dotenv-rails'
 gem 'bootstrap-sass'
 gem 'sassc-rails'
 gem 'jquery-rails'
+gem 'data-confirm-modal'
+gem 'carrierwave'
+gem 'fog'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

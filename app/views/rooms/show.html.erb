@@ -1,4 +1,4 @@
-<h1>Chat Room</h1>
+<h2>Chat Room</h2>
 
 <div id="messages">
   <%= render @messages %>
@@ -8,8 +8,11 @@
 <%= text_field nil, nil, 'data-behavior': 'room_speaker' %>
 
 <div id="end_chat">
-  <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post %>
+  <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post, data:
+      { confirm: '本当にチャットを終了して良いですか?',
+        cancel: 'やめる',
+        commit: '終了する'}, title: '終了確認' %>
 </div>
 <div id="report_user">
-  <%= link_to "ユーザーを通報", rooms_report_user_path(target_id: @target_id.id), method: :post %>
+  <%= link_to "ユーザーを通報", rooms_report_user_path(target_id: @target_user.id), method: :post %>
 </div>

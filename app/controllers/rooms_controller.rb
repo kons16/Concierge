@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
     if current_user.chat_room != -1
       @room = Room.find(current_user.chat_room)
       @messages = @room.messages
+      @target_user = User.where(chat_room: @room.id).where.not(id: current_user.id).first
     else
       redirect_to root_path
     end

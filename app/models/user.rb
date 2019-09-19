@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :report
   has_many :messages
 
+  mount_uploader :icon, IconUploader
+
   def to_param
     search_id
   end
