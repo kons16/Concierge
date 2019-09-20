@@ -15,6 +15,12 @@
     <% elsif @chat_status == 3 %>  <!-- チャット申請を受け付けた -->
       <%= @announce %>
     <% end %>
+  <% else %>
+    <!-- ユーザー検索フォーム -->
+    <%= form_tag(users_path, :method => 'get', :class => 'sform') do %>
+      <%= text_field_tag :search, '', placeholder: 'キーワード', autocomplete: 'off' %>
+      <%= submit_tag 'Search', :name => nil %>
+    <% end %>
   <% end %>
 
 <% else %>

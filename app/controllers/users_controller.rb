@@ -2,9 +2,12 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only:[:add_hoby, :delete_hoby, :chat_request]
   before_action :correct_user, only: :delete_hoby
 
+  # キーワードによるユーザー検索結果
   def index
+    @key_word = params[:keyword]
   end
 
+  # ユーザーのプロフィールページ
   def show
     @user = User.find_by!(search_id: params[:search_id])
   end
