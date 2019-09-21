@@ -4,7 +4,13 @@ class UsersController < ApplicationController
 
   # キーワードによるユーザー検索結果
   def index
-    @key_word = params[:keyword]
+    @users = []
+    if Hoby.find_by(hoby_name: params[:keyword])
+      hoby_id = Hoby.find_by!(hoby_name: params[:keyword]).id
+      UserHoby.where(hoby_id: hoby_id).each do |get_user_hoby|
+        @users.push(User.find(get_user_hoby["user_id"]))
+      end
+    end
   end
 
   # ユーザーのプロフィールページ

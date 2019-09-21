@@ -18,7 +18,7 @@
   <% else %>
     <!-- ユーザー検索フォーム -->
     <%= form_tag(users_path, :method => 'get', :class => 'sform') do %>
-      <%= text_field_tag :search, '', placeholder: 'キーワード', autocomplete: 'off' %>
+      <%= text_field_tag :keyword, '', placeholder: 'キーワード', autocomplete: 'on' %>
       <%= submit_tag 'Search', :name => nil %>
     <% end %>
   <% end %>

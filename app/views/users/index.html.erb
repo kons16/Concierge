@@ -1,1 +1,4 @@
 <h1>検索結果</h1>
+<% @users.each do |user| %>
+  <%= link_to user.name, user %><br>
+<% end %>
