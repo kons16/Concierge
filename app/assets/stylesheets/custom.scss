@@ -11,5 +11,80 @@
 
 
 /* マイページ */
+#my_page_content {
+  text-align: center;
+}
+
+.my_icon {
+  width: 170px;
+  height: 170px;
+}
+
+#my_name {
+  display: inline;
+  margin-left: 35px;
+  font-size: 45px;
+}
+
+#my_search_id {
+  display: inline;
+  margin-left: 35px;
+  font-size: 15px;
+}
+
+#chat_count {
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+#my_introduction {
+  margin-top: 12px;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+#input_hoby_box {
+
+}
+
+.input_hoby_name {
+  height: 33px;
+  padding: 0 10px;
+  width: 200px;
+  border: solid 1px #003355;
+  border-radius: 2px;
+  background: #f0f7f7;
+}
+
+.hoby_submit_btn {
+  margin-left: 5px;
+  width: 50px;
+  height: 33px;
+  border-radius: 2px;
+  background: #5219ff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+}
+
+.hoby_area {
+  width: 600px;
+  margin: 0 auto;
+}
+
+#hoby {
+  display: inline-block;
+  padding: 7px 15px 7px 15px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 23px;
+  color: #6091d3;
+  background: #FFF;
+  border: solid 3px #6091d3;
+  border-radius: 10px;
+}
+
+
 
 

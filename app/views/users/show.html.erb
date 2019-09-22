@@ -1,29 +1,33 @@
 <% if user_signed_in? %>
-  <h2><%= @user.name %> | <%= @user.search_id %></h2>
-  チャットカウント : <%= @user.chat_count %> <br>
-  自己紹介 : <%= @user.introduction %>
-  <br><br>
+  <div id="my_page_content">
+    <%= image_tag '/image/cat.png', class:"my_icon" %>
+    <div id="my_name"><%= @user.name %></div>
+    <!-- <div id="my_search_id"><%= @user.search_id %></div> -->
+    <div id="chat_count">チャットカウント : <%= @user.chat_count %></div>
+    <div id="my_introduction"><%= @user.introduction %></div>
 
-  趣味
-  <%= form_tag users_add_hoby_path, method: :post do %>
-    <input name="hoby_name" value="">
-    <input type="submit" value="追加">
-  <% end %>
+    <% if current_user.search_id != @user.search_id and @user.chat_request != -2 %>
+      <%= link_to "チャットを申請", users_chat_request_path(dest_search_id: params[:search_id]),
+                  method: :post, class: "chat_request" %>
+    <% end %>
 
-  <% @user.user_hoby.each do |my_hoby| %>
-    <div class="hoby">
-      <%= my_hoby.hoby.hoby_name %>
-      <% if @user == current_user %>
-      <%= link_to "☓", users_delete_hoby_path(id: my_hoby.hoby.id), method: :post %>
-      <% end  %>
+    <% if current_user.search_id == @user.search_id %>
+      <div id="input_hoby_box">
+        <%= form_tag users_add_hoby_path, method: :post do %>
+          <input name="hoby_name" value="" class="input_hoby_name" autocomplete="off" placeholder="キーワード">
+          <input type="submit" value="追加" class="hoby_submit_btn">
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="hoby_area">
+      <% @user.user_hoby.each do |my_hoby| %>
+        <div id="hoby"><%= my_hoby.hoby.hoby_name %></div>
+          <% if @user == current_user %>
+            <%= link_to "☓", users_delete_hoby_path(id: my_hoby.hoby.id), method: :post %>
+          <% end %>
+        <br>
+      <% end %>
     </div>
-  <% end %>
-
-  <% if current_user.search_id != @user.search_id and @user.chat_request != -2 %>
-    <%= link_to "チャットを申請", users_chat_request_path(dest_search_id: params[:search_id]),
-                method: :post %>
-  <% end %>
-
-<% else %>
-
+  </div>
 <% end %>
