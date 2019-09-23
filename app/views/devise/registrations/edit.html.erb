@@ -1,47 +1,70 @@
-<h2>Edit Profile</h2>
+<div style="text-align: center;">
+  <h1>ユーザー情報の編集</h1>
+  <br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-group">
+      <div class="row">
+        <%= f.label :ユーザーネーム %><br/>
+        <div class="col-xs-2 col-md-offset-5">
+          <%= f.text_field :name, autofocus: true, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :ユーザーネーム %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+    <div class="form-group">
+      <div class="row">
+        <%= f.label :自己紹介 %><br/>
+        <div class="col-xs-4 col-md-offset-4">
+          <%= f.text_field :introduction, autofocus: true, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :自己紹介 %><br />
-    <%= f.text_field :introduction, autofocus: true %>
-  </div>
+    <div class="form-group">
+      <div class="row">
+        <%= f.label :メールアドレス %><br/>
+        <div class="col-xs-4 col-md-offset-4">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :新しいパスワード %> <br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>最低 <%= @minimum_password_length %> 文字</em>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :確認パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="form-group">
+      <div class="row">
+        新しい<%= f.label :パスワード %> <i>(変更しない場合は空欄)</i><br/>
+        <div class="col-xs-4 col-md-offset-4">
+          <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :現在のパスワード %> <i>(変更するために現在のパスワードを入力してください)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+    <div class="form-group">
+      <div class="row">
+        新しい<%= f.label :パスワード %>の確認<br/>
+        <div class="col-xs-4 col-md-offset-4">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <div class="row">
+        パスワード <i>(ユーザー情報を変更するにはパスワードを入力してください)</i><br/>
+        <div class="col-xs-4 col-md-offset-4">
+          <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+    <br>
+
+    <div class="actions">
+      <%= f.submit "更新", :class => 'btn btn-primary col-xs-2 col-md-offset-5' %>
+    </div>
+  <% end %>
+</div>
