@@ -6,8 +6,10 @@
 
     <div class="form-group">
       <div class="row">
-        <%= f.label :プロフィール画像 %><br/>
         <div class="col-xs-2 col-md-offset-5">
+          <% if current_user.icon.to_s != "" %>
+            <%= image_tag current_user.icon.to_s, class:"my_icon_edit_page" %>
+          <% end %>
           <%= f.file_field :icon %>
         </div>
       </div>
