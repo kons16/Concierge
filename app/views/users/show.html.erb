@@ -1,6 +1,10 @@
 <% if user_signed_in? %>
   <div id="my_page_content">
-    <%= image_tag '/image/cat.png', class:"my_icon" %>
+    <% if @user.icon.to_s != "" %>
+      <%= image_tag @user.icon.to_s, class:"my_icon"%>
+    <% else %>
+      <%= image_tag "/image/person.png", class:"my_icon"%>
+    <% end %>
     <div id="my_name"><%= @user.name %></div>
     <!-- <div id="my_search_id"><%= @user.search_id %></div> -->
     <div id="chat_count">チャットカウント : <%= @user.chat_count %></div>
