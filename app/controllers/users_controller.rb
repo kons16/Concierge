@@ -44,6 +44,17 @@ class UsersController < ApplicationController
     end
   end
 
+  # アイコンを削除する
+  def delete_icon
+    s3 = AWS::S3.new
+    folder = "uploads/user/icon/#{current_user.id}"
+    bucket = s3.buckets['chatapp-myicon']
+    bucket.objects.each do |object|
+      object.delete
+    end
+    redirect_to user_path(current_user.search_id)
+  end
+
   # チャット申請する
   def chat_request
     original_user = User.find(current_user.id)

@@ -1,27 +1,37 @@
-<h1>トップページ</h1>
+<div id="top_content">
+  <% if user_signed_in? %>
+    <div class="logined_top_title">
+      Concierge
+    </div>
+    <% if @chat_status != 0 %>
+      <% if @chat_status == 1 %>    <!-- チャット申請あり -->
+        <%= @announce %>
+        (<%= link_to @origin_user.name, user_path(@origin_user.id) %>)
+        <%= link_to "チャットルームへ", home_create_room_path(origin_id: @origin_user.id), method: :post %>
+        <%= link_to "断る", home_reject_path(origin_id: @origin_user.id), method: :post %>
 
-<% if user_signed_in? %>
+      <% elsif @chat_status == 2 %>　　<!-- チャット申請が断られた -->
+        <%= @announce %>
 
-  <% if @chat_status != 0 %>
-    <% if @chat_status == 1 %>    <!-- チャット申請あり -->
-      <%= @announce %>
-      (<%= link_to @origin_user.name, user_path(@origin_user.id) %>)
-      <%= link_to "チャットルームへ", home_create_room_path(origin_id: @origin_user.id), method: :post %>
-      <%= link_to "断る", home_reject_path(origin_id: @origin_user.id), method: :post %>
-
-    <% elsif @chat_status == 2 %>　　<!-- チャット申請が断られた -->
-      <%= @announce %>
-
-    <% elsif @chat_status == 3 %>  <!-- チャット申請を受け付けた -->
-      <%= @announce %>
+      <% elsif @chat_status == 3 %>  <!-- チャット申請を受け付けた -->
+        <%= @announce %>
+      <% end %>
+    <% else %>
+      <!-- ユーザー検索フォーム -->
+      <div class="search">
+        <%= form_tag(users_path, :method => 'get', :class => 'sform') do %>
+          <%= text_field_tag :keyword, '', placeholder: 'キーワード', class:'sbox', autocomplete: 'on' %>
+          <%= submit_tag 'Search', :name => nil, :class => 'sbtn'%>
+        <% end %>
+      </div>
     <% end %>
+
   <% else %>
-    <!-- ユーザー検索フォーム -->
-    <%= form_tag(users_path, :method => 'get', :class => 'sform') do %>
-      <%= text_field_tag :keyword, '', placeholder: 'キーワード', autocomplete: 'on' %>
-      <%= submit_tag 'Search', :name => nil %>
-    <% end %>
+    <div class="top_title">
+      Concierge
+    </div>
+    <div class="top_detail">
+      Concierge(コンシェルジュ) は会話をサポートしてくれるチャットアプリです.
+    </div>
   <% end %>
-
-<% else %>
-<% end %>
+</div>

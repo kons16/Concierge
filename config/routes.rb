@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   post 'users/chat_request'
   get 'users/index'
   get 'users/show'
+  post 'users/delete_icon'
 end
