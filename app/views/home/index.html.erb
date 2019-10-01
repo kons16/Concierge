@@ -20,7 +20,7 @@
       <!-- ユーザー検索フォーム -->
       <div class="search">
         <%= form_tag(users_path, :method => 'get', :class => 'sform') do %>
-          <%= text_field_tag :keyword, '', placeholder: 'キーワード', class:'sbox', autocomplete: 'on' %>
+          <%= text_field_tag :keyword, '', placeholder: 'キーワード', class:'sbox', autocomplete: 'off' %>
           <%= submit_tag 'Search', :name => nil, :class => 'sbtn'%>
         <% end %>
       </div>
