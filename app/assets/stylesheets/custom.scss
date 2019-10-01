@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* ホーム */
+/*------------------------------------*\
+    $ホーム
+\*------------------------------------*/
 #top_content {
   text-align: center;
 }
@@ -54,51 +56,51 @@
 }
 
 
-/* ヘッダー */
 
 
-/* チャットルーム */
+
+/*------------------------------------*\
+    $チャットルーム
+\*------------------------------------*/
 
 
-/* マイページ */
+
+
+
+/*------------------------------------*\
+    $マイページ
+\*------------------------------------*/
 #my_page_content {
   text-align: center;
 }
-
 .my_icon {
   border-radius: 50%;
   border: 4px solid #87cc90;
   width: 170px;
   height: 170px;
 }
-
 #my_name {
   display: inline;
   margin-left: 35px;
   font-size: 45px;
 }
-
 #my_search_id {
   display: inline;
   margin-left: 35px;
   font-size: 15px;
 }
-
 #chat_count {
   margin-top: 30px;
   font-size: 14px;
 }
-
 #my_introduction {
   margin-top: 12px;
   margin-bottom: 15px;
   font-size: 24px;
 }
-
 #input_hoby_box {
 
 }
-
 .input_hoby_name {
   height: 33px;
   padding: 0 10px;
@@ -107,7 +109,6 @@
   border-radius: 2px;
   background: #f0f7f7;
 }
-
 .hoby_submit_btn {
   margin-left: 5px;
   width: 50px;
@@ -119,12 +120,10 @@
   font-size: 16px;
   border: none;
 }
-
 .hoby_area {
   width: 600px;
   margin: 0 auto;
 }
-
 #hoby {
   display: inline-block;
   padding: 7px 15px 7px 15px;
@@ -137,7 +136,13 @@
   border-radius: 10px;
 }
 
-/* プロフィール編集ページ */
+
+
+
+
+/*------------------------------------*\
+    $プロフィール編集ページ
+\*------------------------------------*/
 .my_icon_edit_page {
   border-radius: 50%;
   border: 4px solid #87cc90;
@@ -147,4 +152,24 @@
 
 
 
+
+
+/*------------------------------------*\
+    $ユーザー検索ページ
+\*------------------------------------*/
+#search_user_box {
+  margin-bottom: 30px;
+}
+#search_user_name {
+  font-size: 30px;
+}
+#search_user_profile {
+  font-size: 15px;
+}
+#my_search_icon {
+  border-radius: 50%;
+  border: 2px solid #253dcc;
+  width: 70px;
+  height: 70px;
+}
 

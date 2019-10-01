@@ -1,4 +1,17 @@
-<h1>検索結果</h1>
-<% @users.each do |user| %>
-  <%= link_to user.name, user %><br>
-<% end %>
+<div style="text-align: center;">
+  <h1>検索結果</h1>
+  <br>
+  <% @users.each do |user| %>
+    <div id="search_user_box">
+      <div id="search_user_icon">
+        <% if user.icon.to_s != "" %>
+          <%= image_tag user.icon.to_s, id:"my_search_icon" %>
+        <% else %>
+            <%= image_tag "/image/person.png", id:"my_search_icon" %>
+          <% end %>
+      </div>
+      <div id="search_user_name"><%= link_to user.name, user %></div>
+      <div id="search_user_profile"><%= user.introduction %></div>
+    </div>
+  <% end %>
+</div>
