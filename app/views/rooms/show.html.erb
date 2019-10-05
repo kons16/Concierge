@@ -1,12 +1,12 @@
 <div style="text-align: center;">
-  <h2>チャットルーム(<%= @target_user.name %>)</h2>
+  <h2><%= link_to @target_user.name, @target_user %>さんとのチャットルーム</h2>
 
   <div id="messages">
     <%= render @messages %>
   </div>
 
-  <%= label nil, nil, 'メッセージ:' %>
-  <%= text_field nil, nil, 'data-behavior': 'room_speaker' %>
+  <br>
+  <%= text_field nil, nil, 'data-behavior': 'room_speaker', class:'message_input_box'%>
 
   <div id="end_chat">
     <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post, data:
