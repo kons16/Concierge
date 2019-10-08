@@ -1,0 +1,10 @@
+<div id="messages_box">
+  <div if="chat_user_icon">
+    <% if User.find(message.user_id).icon.to_s != "" %>
+      <%= image_tag User.find(message.user_id).icon.to_s, id: "chat_room_icon" %>
+    <% else %>
+      <%= image_tag "/image/person.png", id: "chat_room_icon" %>
+    <% end %>
+  </div>
+  <div id="chat_message"><%= message.context %></div>
+</div>

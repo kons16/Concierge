@@ -1,22 +1,24 @@
-<div id="messages_box">
-  <% if message.user_id == current_user.id %>
+<% if message.user_id == current_user.id %>
+  <div id="messages_box">
     <div id="my_chat_message"><%= message.context %></div>
     <div if="chat_user_icon">
       <% if User.find(message.user_id).icon.to_s != "" %>
-        <%= image_tag User.find(message.user_id).icon.to_s, id:"my_chat_room_icon" %>
+        <%= image_tag User.find(message.user_id).icon.to_s, id: "my_chat_room_icon" %>
       <% else %>
-        <%= image_tag "/image/person.png", id:"my_chat_room_icon" %>
+        <%= image_tag "/image/person.png", id: "my_chat_room_icon" %>
       <% end %>
     </div>
-  <% else %>
+  </div>
+<% else %>
+  <div id="messages_box">
     <div if="chat_user_icon">
       <% if User.find(message.user_id).icon.to_s != "" %>
-        <%= image_tag User.find(message.user_id).icon.to_s, id:"chat_room_icon" %>
+        <%= image_tag User.find(message.user_id).icon.to_s, id: "chat_room_icon" %>
       <% else %>
-        <%= image_tag "/image/person.png", id:"chat_room_icon" %>
+        <%= image_tag "/image/person.png", id: "chat_room_icon" %>
       <% end %>
     </div>
     <div id="chat_message"><%= message.context %></div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 <br>

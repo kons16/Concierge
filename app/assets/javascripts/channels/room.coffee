@@ -8,7 +8,11 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
     @perform 'speak', message: message
 
   received: (data) ->
-    $('#messages').append data['message']
+    show_user = $('#show_user').data('show_user')
+    if data['chat_user'] == show_user
+      $('#messages').append data['message_right']
+    else
+      $('#messages').append data['message_left']
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return = send

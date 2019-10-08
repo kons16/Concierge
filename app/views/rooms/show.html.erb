@@ -1,5 +1,7 @@
 <div style="text-align: center;">
   <h2><%= link_to @target_user.name, @target_user %>さんとのチャットルーム</h2>
+  <!-- 表示の左右わけに使う閲覧ユーザー情報 -->
+  <div id="show_user" data-show_user="<%= current_user.id %>"></div>
 
   <div id="messages">
     <%= render @messages %>
