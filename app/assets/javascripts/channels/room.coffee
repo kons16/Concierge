@@ -7,6 +7,9 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
   speak: (message) ->
     @perform 'speak', message: message
 
+  nowinput: () ->
+    @perform 'now_input', message: message
+
   received: (data) ->
     show_user = $('#show_user').data('show_user')
     if data['chat_user'] == show_user
@@ -19,3 +22,4 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
     App.room.speak event.target.value
     event.target.value = ''
     event.preventDefault()
+
