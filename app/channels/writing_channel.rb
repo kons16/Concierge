@@ -9,6 +9,6 @@ class WritingChannel < ApplicationCable::Channel
   end
 
   def write(data)
-    WritingChannel.broadcast_to('announce', data['announce'])
+    WritingChannel.broadcast_to('announce', announce: data['announce'], writting_id: current_user.id)
   end
 end

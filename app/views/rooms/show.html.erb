@@ -12,15 +12,6 @@
   <div id="on_input_status"></div>
   <%= text_field nil, nil, 'data-behavior': 'room_speaker', id:'message_input_box' %>
 
-  <!-- application.jsでは読み込み順？の設定で読み込まれないため以下にjs
-  <script>
-      $('#message_input_box').on('input', function(){
-          document.getElementById('on_input_status').innerHTML =
-              document.getElementById('message_input_box').value;
-      });
-  </script>
-  -->
-
   <div id="end_chat">
     <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post, data:
         { confirm: '本当にチャットを終了して良いですか?',
