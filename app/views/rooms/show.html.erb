@@ -8,9 +8,8 @@
   </div>
 
   <br>
-  <% if current_user.id != @target_user.id %>
-    <div id="on_input_status"></div>
-  <% end %>
+
+  <div id="on_input_status"></div>
   <%= text_field nil, nil, 'data-behavior': 'room_speaker', id:'message_input_box' %>
 
   <!-- application.jsでは読み込み順？の設定で読み込まれないため以下にjs

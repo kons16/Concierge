@@ -11,8 +11,4 @@ class RoomChannel < ApplicationCable::Channel
   def speak(data)
     Message.create!({context: data['message'], user_id: current_user.id, room_id: current_user.chat_room})
   end
-
-  # 入力中
-  def now_input()
-  end
 end
