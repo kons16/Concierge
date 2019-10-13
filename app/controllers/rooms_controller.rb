@@ -12,8 +12,6 @@ class RoomsController < ApplicationController
   # チャットを終了する
   def end_chat
     end_change_user
-    current_user.save!
-    @target_user.save!
     redirect_to root_path
   end
 
@@ -31,7 +29,7 @@ class RoomsController < ApplicationController
 
   private
 
-  # チャット終了とユーザー通報で共通した変更処理
+  # chat_requestとchat_roomをデフォルト値に変更
   def end_change_user
     @target_user = User.where(chat_room: current_user.chat_room).where.not(id: current_user.id).first
     @target_user.chat_request = 0
@@ -41,5 +39,8 @@ class RoomsController < ApplicationController
 
     current_user.increment!(:chat_count, 1)
     @target_user.increment!(:chat_count, 1)
+
+    current_user.save!
+    @target_user.save!
   end
 end
