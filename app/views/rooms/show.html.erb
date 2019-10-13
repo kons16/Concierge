@@ -14,11 +14,14 @@
 
   <div id="end_chat">
     <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post, data:
-        { confirm: '本当にチャットを終了して良いですか?',
+        { confirm: 'チャットを終了しますか?',
           cancel: 'やめる',
           commit: '終了する'}, title: '終了確認' %>
   </div>
   <div id="report_user">
-    <%= link_to "ユーザーを通報", rooms_report_user_path(target_id: @target_user.id), method: :post %>
+    <%= link_to "ユーザーを通報", rooms_report_user_path(target_id: @target_user.id), method: :post, data:
+        { confirm: 'ユーザーを通報しますか？',
+          cancel: 'やめる',
+          commit: '通報する'}, title: '通報確認' %>
   </div>
 </div>

@@ -15,12 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-// = require data-confirm-modal
+//= require data-confirm-modal
 
 window.addEventListener('load', main, false);
 function main(e) {
     const jsInitCheckTimer = setInterval(jsLoaded, 1000);
-    
+
     function sleep(waitMsec) {
         var startMsec = new Date();
         while (new Date() - startMsec < waitMsec);

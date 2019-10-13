@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates_uniqueness_of :search_id
-  has_many :user_hoby
+  has_many :user_hoby, foreign_key: :user_id, dependent: :destroy
   has_many :hoby, through: :user_hoby, dependent: :destroy
   has_many :report
-  has_many :messages
+  has_many :messages, foreign_key: :user_id, dependent: :destroy
 
   mount_uploader :icon, IconUploader
 
