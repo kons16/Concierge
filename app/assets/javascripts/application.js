@@ -33,5 +33,7 @@ function main(e) {
             sleep(1000); // 1秒 == 1000
             document.getElementById('on_input_status').innerHTML = "";
         }
+
+        // 質問が生成し終わったら「質問を生成しています」メッセージの非表示
     }
 }

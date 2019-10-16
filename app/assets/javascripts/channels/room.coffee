@@ -8,8 +8,12 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
     show_user = $('#show_user').data('show_user')
     if data['chat_user'] == show_user
       $('#messages').append data['message_right']
+      if data['message_right'].length >= 10
+        $('#make_question_now').append "質問を生成中"
     else
       $('#messages').append data['message_left']
+      if data['message_left'].length >= 10
+        $('#make_question_now').append "質問を生成中"
 
   speak: (message) ->
     @perform 'speak', message: message
