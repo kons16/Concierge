@@ -1,11 +1,9 @@
 class HomeController < ApplicationController
-  '' '
-  チャット申請・断るときの遷移 chat_requestの初期値は0
-  DestUser(申請先) : OriginUserのID　  → 0 (NG)
-                                     → -1 (OK)
-  OriginalUser(申請元) : -2           →　-4 (NG)  → 0
-                                     → -1  (OK)
-  ' ''
+#  チャット申請・断るときの遷移 chat_requestの初期値は0
+#  DestUser(申請先) : OriginUserのID　  → 0 (NG)
+#                                     → -1 (OK)
+#  OriginalUser(申請元) : -2           →　-4 (NG)  → 0
+#                                     → -1  (OK)
 
   def index
     if user_signed_in?

@@ -6,14 +6,13 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
 
   received: (data) ->
     show_user = $('#show_user').data('show_user')
-    if data['chat_user'] == show_user
+    console.log data['question']
+    if show_user == data['chat_user']
       $('#messages').append data['message_right']
-      if data['message_right'].length >= 10
-        $('#make_question_now').append "質問を生成中"
+      document.getElementById('make_question_now').innerHTML = ""
     else
       $('#messages').append data['message_left']
-      if data['message_left'].length >= 10
-        $('#make_question_now').append "質問を生成中"
+      document.getElementById('make_question_now').innerHTML = data['question']
 
   speak: (message) ->
     @perform 'speak', message: message

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chat_context: MyString
+  q_context: MyString
+  user_id: 1
+  target_id: 1
+  room_id: 1
+
+two:
+  chat_context: MyString
+  q_context: MyString
+  user_id: 1
+  target_id: 1
+  room_id: 1

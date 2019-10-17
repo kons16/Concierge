@@ -39,7 +39,7 @@ gem 'data-confirm-modal'
 gem 'carrierwave'
 gem 'fog'
 gem 'aws-sdk', '~> 3'
-
+gem 'rack-cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

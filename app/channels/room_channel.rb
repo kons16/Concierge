@@ -1,8 +1,4 @@
 class RoomChannel < ApplicationCable::Channel
-  require 'json'
-  require 'net/https'
-  require "uri"
-
   # クライアントと接続されたとき
   def subscribed
     stream_from "room_channel"
@@ -14,6 +10,7 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     Message.create!({context: data['message'], user_id: current_user.id, room_id: current_user.chat_room})
-    # Mediator(質問生成API)に渡す
+    #Question.create!({chat_context: data['message'], q_context: a, user_id: current_user.id,
+    #                 target_id: aaa, room_id: current_user.chat_room})
   end
 end
