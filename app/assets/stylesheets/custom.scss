@@ -141,6 +141,21 @@
   border: 7px solid transparent;
   border-left: 15px solid #74ff6e;
 }
+#make_question_now {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+  font-weight: bold;
+  color: #D375C6;
+  background: #FFF;
+  border: solid 3px #D375C6;
+  border-radius: 10px;
+}
+#make_question_now:empty {
+  display: none;
+}
 
 
 

@@ -6,13 +6,13 @@
   <div id="messages">
     <%= render @messages %>
   </div>
-
-
+  <div id="make_question_now"></div>
+  <div id="load_mark"></div>
   <br>
 
   <div id="on_input_status"></div>
   <%= text_field nil, nil, 'data-behavior': 'room_speaker', id:'message_input_box', autocomplete: 'off' %>
-  <div id="make_question_now"></div>
+  <br>
 
   <div id="end_chat">
     <%= link_to "チャットを終了", rooms_end_chat_path(), method: :post, data:

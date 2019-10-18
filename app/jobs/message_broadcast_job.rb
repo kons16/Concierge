@@ -12,13 +12,11 @@ class MessageBroadcastJob < ApplicationJob
       http = Net::HTTP.new(uri.host, uri.port)
       # http.use_ssl = true
       # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
       req = Net::HTTP::Post.new(uri.path)
       req.set_form_data({'message': message.context})
-
       res = http.request(req)
       result = ActiveSupport::JSON.decode(res.body)
-      puts result["question"]
+      # puts result["question"]
       q = result["question"]
     end
 

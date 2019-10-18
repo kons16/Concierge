@@ -30,10 +30,8 @@ function main(e) {
         // 読み込みが終了したとき「入力中です」アナウンスが表示されていたら、1秒後に非表示にする。
         var announce = document.getElementById('on_input_status').innerHTML;
         if(announce == "相手ユーザーが入力中です"){
-            sleep(1000); // 1秒 == 1000
+            sleep(400); // 1秒 == 1000
             document.getElementById('on_input_status').innerHTML = "";
         }
-
-        // 質問が生成し終わったら「質問を生成しています」メッセージの非表示
     }
 }
