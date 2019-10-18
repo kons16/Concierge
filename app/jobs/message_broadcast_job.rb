@@ -18,6 +18,9 @@ class MessageBroadcastJob < ApplicationJob
       result = ActiveSupport::JSON.decode(res.body)
       # puts result["question"]
       q = result["question"]
+
+      Question.create!({chat_context: message.context, q_context: q, user_id: -1,
+                        target_id: -1, room_id: -1})
     end
 
     ActionCable.server.broadcast 'room_channel',
