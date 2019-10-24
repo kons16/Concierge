@@ -7,19 +7,20 @@ class MessageBroadcastJob < ApplicationJob
   def perform(message)
     q = ""
     # 質問生成APIを呼び出す
-    if message.context.length >= 10
-      uri = URI.parse("http://localhost:8888/v1/call")
+    @msg = message.context
+    if @msg.length >= 10 and @msg[-1] != "?" and @msg[-1] != "か"
+      uri = URI.parse(ENV["CONCIERGE_PYTHON_END_POINT"])
       http = Net::HTTP.new(uri.host, uri.port)
       # http.use_ssl = true
       # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       req = Net::HTTP::Post.new(uri.path)
-      req.set_form_data({'message': message.context})
+      req.set_form_data({'message': @msg})
       res = http.request(req)
       result = ActiveSupport::JSON.decode(res.body)
       # puts result["question"]
       q = result["question"]
 
-      Question.create!({chat_context: message.context, q_context: q, user_id: -1,
+      Question.create!({chat_context: @msg, q_context: q, user_id: -1,
                         target_id: -1, room_id: -1})
     end
 

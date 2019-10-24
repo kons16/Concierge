@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @users = []
     if Hoby.find_by(hoby_name: params[:keyword])
       hoby_id = Hoby.find_by!(hoby_name: params[:keyword]).id
-      UserHoby.where(hoby_id: hoby_id).each do |get_user_hoby|
+      UserHoby.where(hoby_id: hoby_id).where.not(user_id: current_user.id).each do |get_user_hoby|
         @users.push(User.find(get_user_hoby["user_id"]))
       end
     end

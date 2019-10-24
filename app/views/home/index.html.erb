@@ -5,10 +5,13 @@
     </div>
     <% if @chat_status != 0 %>
       <% if @chat_status == 1 %>    <!-- チャット申請あり -->
-        <%= @announce %>
-        (<%= link_to @origin_user.name, user_path(@origin_user.id) %>)
-        <%= link_to "チャットルームへ", home_create_room_path(origin_id: @origin_user.id), method: :post %>
-        <%= link_to "断る", home_reject_path(origin_id: @origin_user.id), method: :post %>
+        <div id="cloud">
+          <div id="cloud_message">
+            <%= link_to @origin_user.name, user_path(@origin_user.search_id) %><%= @announce %><br>
+            <%= link_to "承認", home_create_room_path(origin_id: @origin_user.id), method: :post %>
+            <%= link_to "断る", home_reject_path(origin_id: @origin_user.id), method: :post %>
+          </div>
+        </div>
 
       <% elsif @chat_status == 2 %>　　<!-- チャット申請が断られた -->
         <%= @announce %>

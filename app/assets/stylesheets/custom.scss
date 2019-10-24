@@ -51,10 +51,25 @@
   border-radius: 10px;
   border: none;
 }
-.sbtn:hover{
+.sbtn:hover {
   background: #eee;
   color: #7fbfff;
 }
+#cloud {
+  margin: auto;
+  width: 320px;
+  height: 207px;
+  background-color: #78f0ff;
+  border-radius: 50%;
+  box-shadow: 40px 30px 0 -15px #78f0ff, -60px 40px 0 -30px #78f0ff,
+              -100px 0px 0 -50px #78f0ff, 100px 0px 0 -50px #78f0ff;
+}
+#cloud_message {
+  padding-top: 75px;
+  font-size: 25px;
+}
+
+
 
 
 
@@ -187,7 +202,7 @@
 }
 #chat_count {
   margin-top: 30px;
-  font-size: 14px;
+  font-size: 18px;
 }
 #my_introduction {
   margin-top: 12px;
@@ -195,7 +210,6 @@
   font-size: 24px;
 }
 #input_hoby_box {
-
 }
 .input_hoby_name {
   height: 33px;
@@ -231,6 +245,27 @@
   background: #FFF;
   border: solid 3px #6091d3;
   border-radius: 10px;
+}
+#chat_request {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 7px 10px;
+  border-radius: 15px;
+  min-width: 130px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #ffcef4;
+  text-decoration: none;
+}
+#chat_request:before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -18px;
+  border: 7px solid transparent;
+  border-right: 15px solid #ffcef4;
 }
 
 

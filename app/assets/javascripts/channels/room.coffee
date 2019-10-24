@@ -13,7 +13,7 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
     else
       $('#messages').append data['message_left']
       if data['question'] != ""
-        document.getElementById('make_question_now').innerHTML = "Q. "+data['question']
+        document.getElementById('make_question_now').innerHTML = "提案Q. "+data['question']
       else
         document.getElementById('make_question_now').innerHTML = ""
 

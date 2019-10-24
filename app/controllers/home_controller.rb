@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       if chat_request != 0
 
         if chat_request != -2 and chat_request != -4 and chat_request != -1 # チャット申請が送られてきた
-          @announce = "チャット申請がきてます！"
+          @announce = "さんからチャット申請！"
           @chat_status = 1
           @origin_user = User.find(chat_request)
 

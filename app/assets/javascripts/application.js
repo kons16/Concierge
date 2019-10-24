@@ -22,16 +22,18 @@ function main(e) {
     const jsInitCheckTimer = setInterval(jsLoaded, 1000);
 
     function sleep(waitMsec) {
-        var startMsec = new Date();
+        const startMsec = new Date();
         while (new Date() - startMsec < waitMsec);
     }
 
     function jsLoaded() {
         // 読み込みが終了したとき「入力中です」アナウンスが表示されていたら、1秒後に非表示にする。
-        var announce = document.getElementById('on_input_status').innerHTML;
-        if(announce == "相手ユーザーが入力中です"){
-            sleep(400); // 1秒 == 1000
-            document.getElementById('on_input_status').innerHTML = "";
+        if($('#on_input_status').length){
+            const announce = document.getElementById('on_input_status').innerHTML;
+            if(announce == "相手ユーザーが入力中です"){
+                sleep(400); // 1秒 == 1000
+                document.getElementById('on_input_status').innerHTML = "";
+            }
         }
     }
 }

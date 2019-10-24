@@ -6,14 +6,13 @@
       <%= image_tag "/image/person.png", class:"my_icon"%>
     <% end %>
     <div id="my_name"><%= @user.name %></div>
-    <!-- <div id="my_search_id"><%= @user.search_id %></div> -->
-    <div id="chat_count">チャットカウント : <%= @user.chat_count %></div>
-    <div id="my_introduction"><%= @user.introduction %></div>
-
     <% if current_user.search_id != @user.search_id and @user.chat_request != -2 %>
       <%= link_to "チャットを申請", users_chat_request_path(dest_search_id: params[:search_id]),
-                  method: :post, class: "chat_request" %>
+                  method: :post, id: "chat_request" %>
     <% end %>
+
+    <div id="chat_count">チャットカウント : <%= @user.chat_count %></div>
+    <div id="my_introduction"><%= @user.introduction %></div>
 
     <% if current_user.search_id == @user.search_id %>
       <div id="input_hoby_box">
