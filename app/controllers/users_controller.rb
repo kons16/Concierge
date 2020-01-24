@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     end
 
     if dest_user.save and original_user.save
-      redirect_to user_path(current_user.search_id)
+      redirect_to root_path
     end
   end
 

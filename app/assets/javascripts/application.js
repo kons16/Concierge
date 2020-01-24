@@ -18,8 +18,23 @@
 //= require data-confirm-modal
 
 window.addEventListener('load', main, false);
+
 function main(e) {
     const jsInitCheckTimer = setInterval(jsLoaded, 1000);
+
+    // 画像を送信できるようにする
+    const target = document.getElementById('message_input_box');
+    target.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.dataTransfer.dropEffect = 'copy';
+    });
+    target.addEventListener('drop', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+    });
+
 
     function sleep(waitMsec) {
         const startMsec = new Date();
