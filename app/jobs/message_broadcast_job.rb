@@ -7,21 +7,24 @@ class MessageBroadcastJob < ApplicationJob
   def perform(message)
     q = ""
     # 質問生成APIを呼び出す
-    @msg = message.context
-    if @msg.length >= 10 and @msg[-1] != "?" and @msg[-1] != "か"
-      uri = URI.parse(ENV["CONCIERGE_PYTHON_END_POINT"])
-      http = Net::HTTP.new(uri.host, uri.port)
-      # http.use_ssl = true
-      # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      req = Net::HTTP::Post.new(uri.path)
-      req.set_form_data({'message': @msg})
-      res = http.request(req)
-      result = ActiveSupport::JSON.decode(res.body)
-      # puts result["question"]
-      q = result["question"]
+    if message.context != "image_not_null" then
+      @msg = message.context
 
-      Question.create!({chat_context: @msg, q_context: q, user_id: -1,
-                        target_id: -1, room_id: -1})
+      if @msg.length >= 10 and @msg[-1] != "?" and @msg[-1] != "か" then
+        uri = URI.parse(ENV["CONCIERGE_PYTHON_END_POINT"])
+        http = Net::HTTP.new(uri.host, uri.port)
+        # http.use_ssl = true
+        # http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        req = Net::HTTP::Post.new(uri.path)
+        req.set_form_data({'message': @msg})
+        res = http.request(req)
+        result = ActiveSupport::JSON.decode(res.body)
+        # puts result["question"]
+        q = result["question"]
+
+        Question.create!({chat_context: @msg, q_context: q, user_id: -1,
+                          target_id: -1, room_id: -1})
+      end
     end
 
     ActionCable.server.broadcast 'room_channel',

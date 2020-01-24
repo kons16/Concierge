@@ -1,6 +1,11 @@
 <% if message.user_id == current_user.id %>
   <div id="messages_box">
-    <div id="my_chat_message"><%= message.context %></div>
+    <% if message.context == "image_not_null" %>
+      <div id="my_chat_message"><%= image_tag message.image.to_s %></div>
+    <% else %>
+      <div id="my_chat_message"><%= message.context %></div>
+    <% end %>
+
     <div if="chat_user_icon">
       <% if User.find(message.user_id).icon.to_s != "" %>
         <%= image_tag User.find(message.user_id).icon.to_s, id: "my_chat_room_icon" %>
@@ -18,7 +23,12 @@
         <%= image_tag "/image/person.png", id: "chat_room_icon" %>
       <% end %>
     </div>
-    <div id="chat_message"><%= message.context %></div>
+
+    <% if message.context == "image_not_null" %>
+      <div id="chat_message"><%= image_tag message.image.to_s %></div>
+    <% else %>
+      <div id="chat_message"><%= message.context %></div>
+    <% end %>
   </div>
 <% end %>
 <br>

@@ -20,9 +20,8 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
     document.getElementById('load_mark').textContent = null
 
   speak: (message) ->
-    console.log message
     # メッセージが10文字以上のときロードgifを表示させる
-    if message.length >= 10
+    if message.length >= 10 && message.length <= 100
       load_mark = document.getElementById('load_mark')
       date = new Date
       timestamp = date.getTime()
@@ -49,18 +48,15 @@ document.addEventListener 'dragover', (e) ->
 document.addEventListener 'drop', (e) ->
   file = e.dataTransfer.files[0]
   reader = new FileReader
-
   reader.addEventListener 'load', (->
-    document.getElementById('img_test').src = reader.result
+    # document.getElementById('img_test').src = reader.result
+    App.room.speak reader.result
     return
   ), false
 
   reader.readAsDataURL file
 
-  console.log file
-
   e.preventDefault()
 
-  # App.room.speak e.dataTransfer.files[0]
   # e.target.value = ''
   return
