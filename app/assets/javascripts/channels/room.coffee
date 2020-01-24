@@ -20,6 +20,7 @@ App.room = App.cable.subscriptions.create { channel: "RoomChannel", room_id: $('
     document.getElementById('load_mark').textContent = null
 
   speak: (message) ->
+    console.log message
     # メッセージが10文字以上のときロードgifを表示させる
     if message.length >= 10
       load_mark = document.getElementById('load_mark')
@@ -38,3 +39,28 @@ $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
     event.target.value = ''
     event.preventDefault()
 
+# 画像をドロップしたときの処理
+document.addEventListener 'dragover', (e) ->
+  e.preventDefault()
+  e.stopPropagation()
+  e.dataTransfer.dropEffect = 'copy'
+  return
+
+document.addEventListener 'drop', (e) ->
+  file = e.dataTransfer.files[0]
+  reader = new FileReader
+
+  reader.addEventListener 'load', (->
+    document.getElementById('img_test').src = reader.result
+    return
+  ), false
+
+  reader.readAsDataURL file
+
+  console.log file
+
+  e.preventDefault()
+
+  # App.room.speak e.dataTransfer.files[0]
+  # e.target.value = ''
+  return
