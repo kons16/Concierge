@@ -1,10 +1,15 @@
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: chatapp-user
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  # username: chatapp-user
+  # dockerのときは以下は root
+  username: root
+  password: 
+  # dockerの場合、コメントアウト
+  # socket: /tmp/mysql.sock
+  # dockerの場合、以下のコメントアウトを外す
+  host: db
 
 development:
   <<: *default
@@ -17,5 +22,7 @@ test:
 production:
   <<: *default
   database: chatapp_production
-  username: chatapp-user
+  # dockerの場合、usernameは chatapp-user
+  # username: chatapp-user
+  username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>

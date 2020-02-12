@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_01_24_063403) do
 
-  create_table "hobies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "hobies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "hoby_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_063403) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "chat_context"
     t.string "q_context"
     t.integer "user_id"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_063403) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "target_id"
     t.datetime "created_at", null: false
@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 2020_01_24_063403) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_hobies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "user_hobies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "hoby_id"
     t.datetime "created_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_01_24_063403) do
     t.index ["user_id"], name: "index_user_hobies_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
