@@ -42,4 +42,14 @@ EC2上に質問生成用アプリ(Flask)を立ち上げ、チャットアプリ�
 
 Ruby (2.6.5p114)  
 Ruby on Rails (6.0.2)  
-RubyMine
+Docker  
+RubyMine  
+
+## 環境構築
+
+1. `$ git clone https://github.com/kons16/Concierge.git`
+1. `$ cd Concierge`
+1. `$ docker-compose build`
+1. `$ docker-compose up`
+1. `$ docker-compose run web rails db:create`
+1. `$ docker-compose run web rails db:migrate`
