@@ -47,9 +47,12 @@ RubyMine
 
 ## 環境構築
 
-1. `$ git clone https://github.com/kons16/Concierge.git`
-1. `$ cd Concierge`
-1. `$ docker-compose build`
-1. `$ docker-compose up`
-1. `$ docker-compose run web rails db:create`
-1. `$ docker-compose run web rails db:migrate`
+```
+$ git clone https://github.com/kons16/Concierge.git
+$ cd Concierge
+
+$ docker-compose build
+$ docker-compose up
+$ docker-compose run web rails db:create
+$ docker-compose run web rails db:migrate
+```
